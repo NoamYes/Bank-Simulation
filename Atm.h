@@ -8,10 +8,24 @@
 #ifndef ATM_H_
 #define ATM_H_
 
+#include "Account.h"
+
+
 class Atm {
+
+private:
+
+	int serialNumber;
+	std::string inputFile;
+
 public:
 	Atm();
+	Atm(int serialNum, std::string fileName): serialNumber(serialNum), inputFile(fileName) {
+
+	}
 	virtual ~Atm();
+
+
 };
 
 #endif /* ATM_H_ */

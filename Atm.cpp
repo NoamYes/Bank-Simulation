@@ -7,6 +7,7 @@
 
 #include "Atm.h"
 
+
 Atm::Atm() {
 	// TODO Auto-generated constructor stub
 

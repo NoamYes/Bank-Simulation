@@ -8,6 +8,14 @@
 #ifndef ACCOUNT_H_
 #define ACCOUNT_H_
 
+#include <stdio.h>
+#include <iostream>
+#include <stdlib.h>
+#include <pthread.h>
+
+#include <string>
+
+
 class Account {
 public:
 	Account();
