@@ -22,8 +22,8 @@
 #include <iostream>
 
 //100mili sec
-#define ATMSLEEPTIME 100000
-#define PRINTSLEEPTIME 500000
+#define ATMSLEEP 100000
+#define PRINTSLEEP 500000
 
 
 //#define DEBUG
@@ -33,7 +33,7 @@
 #define eprintf(...) do{}while(0)
 #endif
 
-
+using namespace std;
 
 class Account {
 public:
@@ -53,9 +53,13 @@ public:
 
 	int getPass(void);
 
-	std::string getPassStr(void);
+	void setDeposit(int);
 
-	std::string getIdStr(void);
+	bool setWithdrawal(int);
+
+	string getPassStr(void);
+
+	string getIdStr(void);
 
 	void setBalance(int balance);
 	// Depositing
@@ -67,9 +71,9 @@ public:
 	int _numOfReaders;
 private:
 	int         _accountNumber;
-	std::string _accountNumStr;
+	string _accountNumStr;
 	int         _password;
-	std::string _passStr;
+	string _passStr;
 	int         _balance;
 };
 

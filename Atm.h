@@ -20,12 +20,19 @@ private:
 
 public:
 	Atm();
-	Atm(int serialNum, std::string fileName): serialNumber(serialNum), inputFile(fileName) {
+	Atm(int serialNum, std::string fileName);
 
-	}
 	virtual ~Atm();
 
 	void* atmExeCommandsFunc(void*);
+
+	std::string getInputName() {
+		return this->inputFile;
+	}
+
+	int getSerial() {
+		return this->serialNumber;
+	}
 
 };
 

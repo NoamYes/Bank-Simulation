@@ -2,19 +2,21 @@
 
 #include "Account.h"
 
-
-
-
-
-
-
-
 using namespace std;
+
+
+map<int, Account> accountsMap;
+
+
+
+
+
+
 
 int main(int argc, char *argv[]) {
 
 	Atm* Atms;
-	map<int, Account> accountsMap;
+
 
 	// if there are no arguments at all
 	if(argc == 0 || argc == 1) {

@@ -34,14 +34,6 @@ Account::~Account()
 	//pthread_mutex_destroy(&accountWritersMutex); // hod
 }
 
-bool Account::checkPassword(int candidate)
-{
-	if(candidate == _password)
-	{
-		return true;
-	}
-	return false;
-}
 
 int Account::getBalance(void)
 {
@@ -52,14 +44,15 @@ int Account::getID(void)
 	return _accountNumber;
 }
 
-int Account::getPass(void)
-{
-	return _password;
-}
 
 string Account::getPassStr(void)
 {
 	return _passStr;
+}
+
+int Account::getPass(void)
+{
+	return _password;
 }
 
 string Account::getIdStr(void)
@@ -71,4 +64,31 @@ void Account::setBalance(int balance)
 {
 	_balance = balance;
 	return;
+}
+
+
+void Account::setDeposit(int amount) {
+	_balance += amount;
+	return;
+}
+
+bool Account::setWithdrawal(int amount) {
+	if (_balance >= amount) {
+		_balance -= amount;
+		return true;
+	}
+	else {
+		return false;
+	}
+
+}
+
+
+bool Account::checkPassword(int candidate)
+{
+	if(candidate == _password)
+	{
+		return true;
+	}
+	return false;
 }
