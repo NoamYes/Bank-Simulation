@@ -134,7 +134,32 @@ void* atmExeCommandsFunc(void* t_atm) {
 			// make account a vip account
 			else if (*args[0] == *cmdL) {
 
+				// if account already exists in map
+				if (accountsMap.count(accountNum) == 0) {
 
+					//log lock
+					logWriter << "Error " << atm->getSerial() <<
+							": Your transaction failed - password for account id " << accountNumStr
+							<< " is incorrect" << endl;
+					sleep(1);
+					continue;
+				}
+
+				Account accountEnter = accountsMap.at(accountNum);
+
+				//check correct password
+				if (password != accountEnter._password ) {
+					logWriter << "Error " << atm->getSerial() <<
+							": Your transaction failed - password for account id " << accountNumStr
+							<< " is incorrect" << endl;
+					sleep(1);
+					continue;
+
+				}
+
+				accountEnter.setVIP();
+				sleep(1);
+				continue;
 
 			}
 

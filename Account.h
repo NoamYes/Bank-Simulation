@@ -61,6 +61,10 @@ public:
 
 	string getIdStr(void);
 
+	void setVIP();
+
+	bool isAccountVIP();
+
 	void setBalance(int balance);
 	// Depositing
 	// Withdrawal
@@ -75,6 +79,7 @@ private:
 	int         _password;
 	string _passStr;
 	int         _balance;
+	bool isVIP = false;
 };
 
 #endif /* ACCOUNT_H_ */

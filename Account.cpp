@@ -92,3 +92,11 @@ bool Account::checkPassword(int candidate)
 	}
 	return false;
 }
+
+void Account::setVIP() {
+	this->isVIP = true;
+}
+
+bool Account::isAccountVIP() {
+	return this->isVIP;
+}
