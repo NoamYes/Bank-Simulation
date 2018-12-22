@@ -10,13 +10,14 @@
 
 #include "Account.h"
 
+using namespace std;
 
 class Atm {
 
 private:
 
 	int serialNumber;
-	std::string inputFile;
+	string inputFile;
 
 public:
 	Atm();
@@ -26,7 +27,7 @@ public:
 
 	void* atmExeCommandsFunc(void*);
 
-	std::string getInputName() {
+	string getInputName() {
 		return this->inputFile;
 	}
 
