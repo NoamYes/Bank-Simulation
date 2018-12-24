@@ -10,24 +10,21 @@
 
 #include "Account.h"
 
-using namespace std;
-
 class Atm {
 
 private:
 
 	int serialNumber;
-	string inputFile;
+	std::string inputFile;
 
 public:
 	Atm();
 	Atm(int serialNum, std::string fileName);
 
-	virtual ~Atm();
+	~Atm() = default;
 
-	void* atmExeCommandsFunc(void*);
 
-	string getInputName() {
+	std::string getInputName() {
 		return this->inputFile;
 	}
 
@@ -36,5 +33,12 @@ public:
 	}
 
 };
+
+void* printAnimation(void*);
+
+void* takeComission(void*);
+
+void* atmExeCommandsFunc(void* cur_atm);
+
 
 #endif /* ATM_H_ */

@@ -1,93 +1,55 @@
 /*
- * Account.cpp
+ * Atm.cpp
  *
- *  Created on: May 22, 2017
- *      Author: compm
+ *  Created on: Dec 17, 2018
+ *      Author: os
  */
 
 #include "Account.h"
 
 using namespace std;
 
-// Global Variables
-//extern map<int, Account> accountsMap;
-//extern Account  bankAccount;
 
 
-Account::Account(int accntNum, int password, int balance, string accountNumStr, string passStr)
-{
-	 pthread_mutex_init(&accountReadersMutex, NULL);
-	 pthread_mutex_init(&accountWritersMutex, NULL);
-	_accountNumber = accntNum;
-	_password = password;
-	_balance = balance;
-	_passStr = passStr;
-	_accountNumStr = accountNumStr;
-	_numOfReaders = 0;
+Account::Account(string accountNum, string password, int balance) :
+		accountNumber(accountNum), password(password), balance(balance),
+		isVIP(false) {};
+
+
+int Account::getBalance(void) {
+	return balance;
 }
 
-Account::~Account()
-{
-	// TODO Auto-generated destructor stub
-	
-	//pthread_mutex_destroy(&accountReadersMutex); // hod
-	//pthread_mutex_destroy(&accountWritersMutex); // hod
+string Account::getID(void) {
+	return accountNumber;
 }
 
-
-int Account::getBalance(void)
-{
-	return _balance;
-}
-int Account::getID(void)
-{
-	return _accountNumber;
+string Account::getPass(void) {
+	return password;
 }
 
-
-string Account::getPassStr(void)
-{
-	return _passStr;
-}
-
-int Account::getPass(void)
-{
-	return _password;
-}
-
-string Account::getIdStr(void)
-{
-	return _accountNumStr;
-}
-
-void Account::setBalance(int balance)
-{
-	_balance = balance;
+void Account::setBalance(int newBalance) {
+	balance = newBalance;
 	return;
 }
 
-
 void Account::setDeposit(int amount) {
-	_balance += amount;
+	balance += amount;
 	return;
 }
 
 bool Account::setWithdrawal(int amount) {
-	if (_balance >= amount) {
-		_balance -= amount;
+	if (balance >= amount) {
+		balance -= amount;
 		return true;
-	}
-	else {
+	} else {
 		return false;
 	}
 
 }
 
-
-bool Account::checkPassword(int candidate)
-{
-	if(candidate == _password)
-	{
+bool Account::checkPassword(string candidate) {
+	if (candidate == password) {
 		return true;
 	}
 	return false;
