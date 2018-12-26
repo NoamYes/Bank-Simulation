@@ -13,7 +13,7 @@ using namespace std;
 
 Account::Account(string accountNum, string password, int balance) :
 		accountNumber(accountNum), password(password), balance(balance),
-		isVIP(false) {};
+		isVIP(false), numOfReaders(0) {};
 
 
 int Account::getBalance(void) {

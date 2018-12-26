@@ -44,10 +44,10 @@ private:
 	bool isVIP = false;
 
 public:
-	/*pthread_mutex_t accountReadersMutex;
+	pthread_mutex_t accountReadersMutex;
 	pthread_mutex_t accountWritersMutex;
-	int _numOfReaders;
-	*/
+	int numOfReaders;
+
 	Account(string, string, int);
 
 	~Account() = default;

@@ -19,7 +19,7 @@ private:
 
 public:
 	Atm();
-	Atm(int serialNum, std::string fileName);
+	Atm(int serialNum, string fileName);
 
 	~Atm() = default;
 

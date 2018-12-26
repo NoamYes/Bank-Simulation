@@ -1,4 +1,4 @@
-# Makefile for the Bank program
+# Makefile for the smash program
 CCC = g++ -pthread
 CXXFLAGS = -Wall -std=c++0x
 CXXLINK = $(CCC)
